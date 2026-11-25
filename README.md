@@ -19,7 +19,7 @@ plugins {
 
 atlas {
     tag = providers.environmentVariable("GITHUB_REF_NAME")
-    publish("games/dusty-dunes", "plugins/DustyDunes.jar", tasks.jar)
+    publish("games/duels", "plugins/Duels.jar", tasks.jar)
 }
 ```
 

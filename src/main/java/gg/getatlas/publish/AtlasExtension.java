@@ -87,8 +87,8 @@ public abstract class AtlasExtension {
     /**
      * Puts one file into a template at a path.
      *
-     * @param template the template's name, such as {@code games/dusty-dunes}
-     * @param path the path inside the template, such as {@code plugins/DustyDunes.jar}
+     * @param template the template's name, such as {@code games/duels}
+     * @param path the path inside the template, such as {@code plugins/Duels.jar}
      * @param source anything {@code files()} accepts that holds one file, such as a jar task
      */
     public void publish(String template, String path, Object source) {

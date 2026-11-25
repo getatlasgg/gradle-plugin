@@ -129,7 +129,7 @@ final class Releases {
         String template = released.get("template").getAsString();
 
         if (released.has("published")) {
-            return template + "  v" + released.get("published").getAsLong() + " · " + tag;
+            return template + "  v" + released.get("published").getAsLong() + " (" + tag + ")";
         }
 
         if (released.has("unchanged")) {
