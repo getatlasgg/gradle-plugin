@@ -51,7 +51,7 @@ public abstract class AtlasExtension {
     public abstract Property<String> getLink();
 
     /**
-     * Whether the release lands in a draft per template instead of publishing.
+     * Has no effect, since every release lands in a draft per template.
      *
      * @return whether the release is a draft
      */

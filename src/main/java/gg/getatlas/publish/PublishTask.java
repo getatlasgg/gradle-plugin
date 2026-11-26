@@ -62,7 +62,7 @@ public abstract class PublishTask extends DefaultTask {
     public abstract Property<String> getLink();
 
     /**
-     * Whether the release lands in drafts.
+     * Has no effect, since every release lands in a draft per template.
      *
      * @return whether the release is a draft
      */

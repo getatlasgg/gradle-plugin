@@ -31,11 +31,9 @@ The plugin reads the panel's address from `ATLAS_PANEL` and the token from
 
 ## Tasks
 
-`./gradlew atlasPublish` builds the files and releases them under `tag`. A tag
-like `v1.4.2` gives each template a new version. A tag with a dash, like
-`v1.5.0-beta.1`, opens a draft per template instead. Set `draft = true` to
-open drafts for a stable tag too, and `link` to the commit the release came
-from.
+`./gradlew atlasPublish` builds the files and releases them under `tag`. Each
+template gets a draft with the files, which someone publishes from the panel.
+Set `link` to the commit the release came from.
 
 `./gradlew atlasDev` sends the build into your own draft while you work on it.
 Add `dev { server = true }` to also start or restart the draft's dev server.
