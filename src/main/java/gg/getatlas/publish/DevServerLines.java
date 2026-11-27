@@ -32,8 +32,10 @@ final class DevServerLines {
 
             if (server.has("started")) {
                 lines.add("  dev server " + server.get("started").getAsString() + " starting");
+            } else if (server.has("reloaded")) {
+                lines.add(ReloadLines.reloaded(server.getAsJsonObject("reloaded")));
             } else if (server.has("restarted")) {
-                lines.add("  dev server " + server.get("restarted").getAsString() + " restarting");
+                lines.add(ReloadLines.restarted(server.get("restarted").getAsString(), server.getAsJsonObject("reloadRefused")));
             } else if (server.has("held")) {
                 lines.add("  no dev server: " + DevServerLines.held(server.getAsJsonObject("held")));
             }

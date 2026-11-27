@@ -29,6 +29,21 @@ final class DevServerLinesTest {
     }
 
     @Test
+    void namesAReloadOrWhyItRestarted() {
+        String body = "{\"devServers\":["
+            + "{\"reloaded\":{\"name\":\"dev-lobby-1\",\"jars\":[{\"path\":\"plugins/Lobby.jar\",\"classes\":4}],\"milliseconds\":60}},"
+            + "{\"restarted\":\"dev-lobby-2\",\"reloadRefused\":{\"reason\":\"REASON_FIELDS_CHANGED\",\"subject\":\"Greeter\"}}"
+            + "]}";
+
+        List<String> expected = List.of(
+            "  dev-lobby-1 reloaded 4 classes from plugins/Lobby.jar in 60 ms",
+            "  dev-lobby-2 restarts: Greeter's fields changed"
+        );
+
+        Assertions.assertEquals(expected, DevServerLines.of(JsonParser.parseString(body).getAsJsonObject()));
+    }
+
+    @Test
     void printsNothingWithoutDevServers() {
         Assertions.assertEquals(List.of(), DevServerLines.of(JsonParser.parseString("{\"template\":\"lobby\",\"published\":3}").getAsJsonObject()));
     }

@@ -98,6 +98,15 @@ public abstract class PublishTask extends DefaultTask {
     public abstract Property<String> getDraftName();
 
     /**
+     * Whether a dev push restarts its dev servers even where a reload would swap the classes in.
+     *
+     * @return whether the push restarts
+     */
+    @Input
+    @Optional
+    public abstract Property<Boolean> getRestart();
+
+    /**
      * The files of the release.
      *
      * @return the entries
@@ -176,6 +185,7 @@ public abstract class PublishTask extends DefaultTask {
         JsonObject push = new JsonObject();
 
         push.addProperty("server", this.getServer().getOrElse(false));
+        push.addProperty("restart", this.getRestart().getOrElse(false));
 
         if (this.getDraftName().isPresent() && !this.getDraftName().get().isBlank()) {
             push.addProperty("draft", this.getDraftName().get().strip());

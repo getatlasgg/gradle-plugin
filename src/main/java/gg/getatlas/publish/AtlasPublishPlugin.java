@@ -34,6 +34,7 @@ public final class AtlasPublishPlugin implements Plugin<Project> {
             task.getDev().set(true);
             task.getServer().set(atlas.getDev().getServer());
             task.getDraftName().set(providers.gradleProperty("atlas.draft"));
+            task.getRestart().set(providers.gradleProperty("atlas.restart").map(value -> !value.equals("false")));
         });
     }
 
